@@ -30,7 +30,7 @@
           <div class="container min">
             <div class="wrapper-checkout">
               <keep-alive>
-                <form class="full" @submit.prevent="onCheckout">
+                <form @submit.prevent="onCheckout">
                   <h1>Enter contact information</h1>
                   <input
                     type="text"
@@ -158,8 +158,8 @@ export default {
     };
 
     // load info page reload
-    watch(user, () => {
-      if (user.value) {
+    watch(userInfo, () => {
+      if (userInfo.value) {
         email.value = user.value.email;
         firstName.value = userInfo.value.firstName;
         lastName.value = userInfo.value.lastName;
@@ -169,7 +169,7 @@ export default {
 
     // load info page mounted
     onMounted(() => {
-      if (user.value) {
+      if (userInfo.value) {
         email.value = user.value.email;
         firstName.value = userInfo.value.firstName;
         lastName.value = userInfo.value.lastName;
@@ -220,6 +220,8 @@ export default {
 }
 .wrapper-checkout {
   form {
+    width: 900px;
+    max-width: 900px;
     .btns {
       display: flex;
       justify-content: space-between;
