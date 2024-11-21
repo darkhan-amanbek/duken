@@ -19,6 +19,7 @@ auth.onAuthStateChanged(() => {
 const authStatusChange = (loggedIn, user) => {
   if (store) {
     store.commit("authStateChange");
+    console.log(user);
     if (user) {
       store.dispatch("loadTransactionsList", user.uid);
       store.dispatch("loadUserInfo", user.uid);
